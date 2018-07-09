@@ -1,21 +1,20 @@
 package org.kh.member.model.dao;
 
 import org.kh.member.model.vo.MemberVO;
-import org.springframework.jdbc.core.JdbcTemplate;
+import org.mybatis.spring.SqlSessionTemplate;
 
 public interface MemberDAO {
 
-	MemberVO selectOneMember(JdbcTemplate jdbc, MemberVO mv);
+	int updateMember(SqlSessionTemplate sqlSession, MemberVO mv);
 
-	int updateMember(JdbcTemplate jdbcTemplate, MemberVO mv);
+	int insertMember(SqlSessionTemplate sqlSession, MemberVO mv);
 
-	int insertMember(JdbcTemplate jdbcTemplate, MemberVO mv);
+	int withdrawMember(SqlSessionTemplate jdbc, String userId);
 
-	int withdrawMember(JdbcTemplate jdbc, String userId);
+	Object allMember(SqlSessionTemplate sqlSession);
 
-	Object allMember(JdbcTemplate jdbcTemplate);
+	MemberVO selectOneMember(SqlSessionTemplate sqlSession, MemberVO mv);
 
-
-	MemberVO selectOneMemberNoEncrypt(JdbcTemplate jdbc, MemberVO mv);
+	MemberVO selectOneMemberNoEncrypt(SqlSessionTemplate sqlSession, MemberVO mv);
 
 }
