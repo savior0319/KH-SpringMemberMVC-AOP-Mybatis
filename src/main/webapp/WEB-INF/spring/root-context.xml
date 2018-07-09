@@ -13,7 +13,7 @@
 		<property name="username" value="SPRING" />
 		<property name="password" value="SPRING" />
 	</bean>
-
+	
 	<!-- Mybatis 추가 -->
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"></property>
