@@ -16,10 +16,6 @@ public class MemberServiceImpl implements MemberService {
 	@Resource(name = "memberDAO")
 	private MemberDAOImpl memberDAO;
 
-	/*
-	 * @Autowired private JdbcTemplate jdbcTemplate;
-	 */
-
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 
@@ -65,11 +61,7 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public MemberVO selectOneMemberNoEncrypt(MemberVO mv) {
-
-		System.out.println("Service : " + mv.getUserPw());
 		MemberVO m = memberDAO.selectOneMemberNoEncrypt(sqlSession, mv);
-
-		System.out.println("DB 갔다옴 : " + m.getUserId());
 		return m;
 	}
 

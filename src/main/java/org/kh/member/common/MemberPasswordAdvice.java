@@ -38,4 +38,15 @@ public class MemberPasswordAdvice {
 		vo.setUserPw(userPwd);
 	}
 
+	@Pointcut("execution(int org.kh.member.model.service.*ServiceImpl.updateMember(..))")
+	public void encryptSHA256Update() {
+	}
+
+	@Before(value = "encryptSHA256Update()")
+	public void passwordEncryptUpdate(JoinPoint jp) throws Exception {
+		MemberVO vo = (MemberVO) (jp.getArgs()[0]);
+		String userPwd = new SHA256Util().encryptData(vo.getUserPw());
+		vo.setUserPw(userPwd);
+	}
+
 }

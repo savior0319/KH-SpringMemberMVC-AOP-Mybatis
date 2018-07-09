@@ -75,7 +75,6 @@ public class MemberControllerImpl implements MemberController {
 	public Object myInfo(HttpSession session) {
 
 		MemberVO mv = (MemberVO) session.getAttribute("member");
-		System.out.println("컨트롤러 비번  " +  mv.getUserPw());
 		MemberVO m = memberService.selectOneMemberNoEncrypt(mv);
 		
 		ModelAndView view = new ModelAndView();
