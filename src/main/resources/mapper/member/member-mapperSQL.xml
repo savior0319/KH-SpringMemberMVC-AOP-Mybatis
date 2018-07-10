@@ -13,8 +13,7 @@
 
 	<update id="updateMember" parameterType="member">
 		UPDATE MEMBER SET
-		USER_PWD = #{userPw}, USER_PHONE = #{phone} WHERE USER_ID
-		= #{userId}
+		USER_PWD = #{userPw}, USER_PHONE = #{phone} WHERE USER_ID = #{userId}
 	</update>
 
 	<update id="insertMember" parameterType="member">
@@ -23,8 +22,7 @@
 	</update>
 
 	<delete id="withdrawMember" parameterType="String">
-		DELETE FROM MEMBER
-		WHERE USER_ID = #{userId}
+		DELETE FROM MEMBER WHERE USER_ID = #{userId}
 	</delete>
 
 	<select id="allMember" resultType="member">
